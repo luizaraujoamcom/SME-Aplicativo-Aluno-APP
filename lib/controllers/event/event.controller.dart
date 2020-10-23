@@ -100,28 +100,19 @@ abstract class _EventControllerBase with Store {
 
   @action
   changeCurrentMonth(int month, int codigoEol, int userId) async {
+    print("$month");
     loadingCurrentMonth(month);
     await fetchEvento(codigoEol, month, currentDate.year, userId);
   }
 
   @action
   listPriorityEvents(eventsList) {
-    var filterList = ObservableList<Event>.of([]);
-    var sortList = ObservableList<Event>.of([]);
-    var takeList = ObservableList<Event>.of([]);
-
-    filterList = ObservableList<Event>.of(eventsList
-        .where((i) => DateTime.parse(i.dataInicio).day >= currentDate.day)
-        .toList());
-
-    sortList = ObservableList<Event>.of(filterList
+    var auxList = eventsList
       ..sort((a, b) =>
-          (a.tipoEvento.toString()).compareTo(b.tipoEvento.toString())));
+          (a.tipoEvento.toString()).compareTo(b.tipoEvento.toString()));
 
-    takeList = sortList.length > 4
-        ? ObservableList<Event>.of(sortList.take(4).toList())
-        : ObservableList<Event>.of(sortList);
+    var newList = auxList.take(4).toList();
 
-    priorityEvents = takeList;
+    priorityEvents = ObservableList<Event>.of(newList);
   }
 }
