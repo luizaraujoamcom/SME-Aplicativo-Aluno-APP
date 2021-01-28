@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
 import 'package:sme_app_aluno/models/message/group.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
-import 'package:sme_app_aluno/screens/login/login.dart';
+import 'package:sme_app_aluno/views/login/login.dart';
 import 'package:sme_app_aluno/services/group_messages.service.dart';
 import 'package:sme_app_aluno/services/message.service.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
