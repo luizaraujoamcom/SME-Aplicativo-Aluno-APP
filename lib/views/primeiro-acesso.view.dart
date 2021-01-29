@@ -18,7 +18,7 @@ import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.
 import 'package:sme_app_aluno/views/views.dart';
 import 'package:sme_app_aluno/widgets/check_line/check_line.dart';
 import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
-import 'package:sme_app_aluno/utils/auth.dart';
+import 'package:sme_app_aluno/utils/auth.util.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class PrimeiroAcessoView extends StatefulWidget {

@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:sme_app_aluno/controllers/terms/terms.controller.dart';
+import 'package:sme_app_aluno/service.locator.dart';
+import 'package:sme_app_aluno/themes/app.theme.dart';
 import 'package:sme_app_aluno/views/views.dart';
-import 'package:sme_app_aluno/utils/conection.dart';
-import 'package:sme_app_aluno/utils/global_config.dart';
+import 'package:sme_app_aluno/utils/conection.util.dart';
 import 'package:sentry/sentry.dart';
 
 import 'controllers/auth/authenticate.controller.dart';
@@ -14,6 +15,7 @@ import 'controllers/auth/recover_password.controller.dart';
 import 'controllers/messages/messages.controller.dart';
 import 'controllers/students/students.controller.dart';
 import 'package:intl/date_symbol_data_local.dart' as date_symbol_data_local;
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 /// This "Headless Task" is run when app is terminated.
 void backgroundFetchHeadlessTask(String taskId) async {
@@ -21,7 +23,9 @@ void backgroundFetchHeadlessTask(String taskId) async {
 }
 
 void main() async {
-  final SentryClient sentry = new SentryClient(dsn: GlobalConfig.SENTRY_DSN);
+  await DotEnv.load(fileName: ".env");
+  final SentryClient sentry = new SentryClient(dsn: DotEnv.env['SENTRY_DSN']);
+
   try {} catch (error, stackTrace) {
     await sentry.captureException(
       exception: error,
@@ -33,6 +37,8 @@ void main() async {
     statusBarBrightness: Brightness.dark,
     // status bar color
   ));
+
+  setupLocator();
   runApp(MyApp());
 
   BackgroundFetch.registerHeadlessTask(backgroundFetchHeadlessTask);
@@ -40,7 +46,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   MyApp() {
-    GlobalConfig.Environment = "prod";
     date_symbol_data_local.initializeDateFormatting();
   }
 
@@ -63,7 +68,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'SME Aplicativo do Aluno',
-        theme: ThemeData(primaryColor: Color(0xFFEEC25E)),
+        theme: appTheme(),
         home: WrapperView(),
       ),
     );

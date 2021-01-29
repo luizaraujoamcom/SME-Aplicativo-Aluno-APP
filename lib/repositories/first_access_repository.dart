@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:sme_app_aluno/interfaces/first_access_repository_interface.dart';
 import 'package:sme_app_aluno/models/change_email_and_phone/data_change_email_and_phone.dart';
 import 'package:sme_app_aluno/models/first_access/data.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/utils.dart';
 
@@ -12,7 +12,7 @@ class FirstAccessRepository implements IFirstAccessRepository {
   final UserService _userService = UserService();
   @override
   Future<Data> changeNewPassword(int id, String password) async {
-    final User user = await _userService.find(id);
+    final Usuario user = await _userService.find(id);
 
     int _id = user.id;
     Map _data = {
@@ -33,7 +33,7 @@ class FirstAccessRepository implements IFirstAccessRepository {
       var decodeJson = jsonDecode(response.body);
       var data = Data.fromJson(decodeJson);
       if (response.statusCode == 200) {
-        await _userService.update(User(
+        await _userService.update(Usuario(
           id: user.id,
           nome: user.nome,
           cpf: user.cpf,
@@ -61,7 +61,7 @@ class FirstAccessRepository implements IFirstAccessRepository {
   @override
   Future<DataChangeEmailAndPhone> changeEmailAndPhone(
       String email, String phone, int userId, bool changePassword) async {
-    final User user = await _userService.find(userId);
+    final Usuario user = await _userService.find(userId);
     String token = user.token;
 
     Map _data = {
@@ -83,7 +83,7 @@ class FirstAccessRepository implements IFirstAccessRepository {
       if (response.statusCode == 200) {
         var decodeJson = jsonDecode(response.body);
         var data = DataChangeEmailAndPhone.fromJson(decodeJson);
-        await _userService.update(User(
+        await _userService.update(Usuario(
             id: userId,
             nome: user.nome,
             cpf: user.cpf,

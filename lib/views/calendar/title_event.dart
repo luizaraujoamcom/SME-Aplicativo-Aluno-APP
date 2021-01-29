@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:sme_app_aluno/utils/string_support.dart';
+import 'package:sme_app_aluno/utils/string-support.util.dart';
 
 class TitleEvent extends StatelessWidget {
   final String dayOfWeek;

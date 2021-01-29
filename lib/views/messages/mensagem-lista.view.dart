@@ -9,9 +9,9 @@ import 'package:sme_app_aluno/views/messages/mensagem.view.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/widgets/filters/eaq_filter_page.dart';
-import 'package:sme_app_aluno/utils/conection.dart';
-import 'package:sme_app_aluno/utils/date_format.dart';
-import 'package:sme_app_aluno/utils/string_support.dart';
+import 'package:sme_app_aluno/utils/conection.util.dart';
+import 'package:sme_app_aluno/utils/date-format.util.dart';
+import 'package:sme_app_aluno/utils/string-support.util.dart';
 
 class MensagemListaView extends StatefulWidget {
   final int codigoGrupo;

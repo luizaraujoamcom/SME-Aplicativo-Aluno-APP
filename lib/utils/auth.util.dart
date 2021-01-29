@@ -8,7 +8,7 @@ import 'package:sme_app_aluno/views/login.view.dart';
 import 'package:sme_app_aluno/services/group_messages.service.dart';
 import 'package:sme_app_aluno/services/message.service.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
-import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/utils/navigator.util.dart';
 
 class Auth {
   static logout(BuildContext context, int userId, bool desconected) async {

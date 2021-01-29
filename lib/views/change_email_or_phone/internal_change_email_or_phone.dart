@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobx/mobx.dart';
 import 'package:sme_app_aluno/controllers/auth/first_access.controller.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/utils/utils.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
@@ -48,7 +48,7 @@ class _InternalChangeEmailOrPhoneState
   }
 
   loadInputs() async {
-    final User user = await _userService.find(widget.userId);
+    final Usuario user = await _userService.find(widget.userId);
     String email = user.email;
     String phone = user.celular;
     var maskedPhone =

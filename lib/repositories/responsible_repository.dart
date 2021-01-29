@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'package:sme_app_aluno/interfaces/responsible_repository_interface.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/utils.dart';
 
@@ -10,7 +10,7 @@ class ResponsibleRepository implements IResponsibleRepository {
   @override
   Future<bool> checkIfResponsibleHasStudent(int userId) async {
     // Autenticacao/usuario/responsavel?cpf=40861153871
-    User user = await _userService.find(userId);
+    Usuario user = await _userService.find(userId);
     try {
       final response = await http.get(
         "${ApiUtil.HOST}/Autenticacao/usuario/responsavel?cpf=${user.cpf}",

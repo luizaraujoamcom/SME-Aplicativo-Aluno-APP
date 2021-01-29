@@ -10,7 +10,7 @@ import 'package:getflutter/types/gf_loader_type.dart';
 import 'package:sme_app_aluno/controllers/auth/recover_password.controller.dart';
 import 'package:sme_app_aluno/views/recover_password/show_info.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
-import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/utils/navigator.util.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class RecoverPassword extends StatefulWidget {

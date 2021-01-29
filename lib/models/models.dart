@@ -1,0 +1,1 @@
+export 'usuario.model.dart';

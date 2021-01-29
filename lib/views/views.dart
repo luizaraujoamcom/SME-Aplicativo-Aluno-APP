@@ -16,3 +16,4 @@ export 'termos.view.dart';
 
 //Estudante
 export 'estudante-lista.view.dart';
+export 'estudante-resumo.view.dart';

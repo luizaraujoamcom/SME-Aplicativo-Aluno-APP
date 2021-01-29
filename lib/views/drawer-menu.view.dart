@@ -8,9 +8,8 @@ import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/views/calendar/list_events.dart';
 import 'package:sme_app_aluno/views/messages/mensagem-lista.view.dart';
 import 'package:sme_app_aluno/views/settings/settings.dart';
-import 'package:sme_app_aluno/views/students/resume_studants/resume_studants.dart';
-import 'package:sme_app_aluno/utils/auth.dart';
-import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/utils/auth.util.dart';
+import 'package:sme_app_aluno/utils/navigator.util.dart';
 import 'package:sme_app_aluno/views/views.dart';
 
 class DrawerMenuView extends StatefulWidget {
@@ -191,7 +190,7 @@ class _DrawerMenuState extends State<DrawerMenuView> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ResumeStudants(
+                      builder: (context) => EstudanteResumoView(
                             student: widget.student,
                             userId: widget.userId,
                             groupSchool: widget.groupSchool,

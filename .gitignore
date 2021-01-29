@@ -5,6 +5,7 @@
 # Generated Dart files  
 **/*.g.dart
 
+.env
 ### Flutter ###
 # Flutter/Dart/Pub related
 **/doc/api/

@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
 import 'package:sme_app_aluno/models/user/data.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/repositories/authenticate_repository.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 
@@ -19,7 +19,7 @@ abstract class _AuthenticateControllerBase with Store {
   }
 
   @observable
-  User user;
+  Usuario user;
 
   @observable
   Data currentUser;
@@ -61,7 +61,7 @@ abstract class _AuthenticateControllerBase with Store {
   @action
   Future<void> loadCurrentUser() async {
     isLoading = true;
-    final List<User> users = await _userService.all();
+    final List<Usuario> users = await _userService.all();
     if (users.isNotEmpty) {
       user = users[0];
     }

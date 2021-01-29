@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:sme_app_aluno/interfaces/message_repository_interface.dart';
 import 'package:http/http.dart' as http;
 import 'package:sme_app_aluno/models/message/message.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/services/message.service.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/utils.dart';
@@ -11,7 +11,7 @@ class MessageRepository implements IMessageRepository {
   final UserService _userService = UserService();
   final MessageService _messageService = MessageService();
 
-  Future<List<Message>> fetchNewMessages(int codigoEol, User user) async {
+  Future<List<Message>> fetchNewMessages(int codigoEol, Usuario user) async {
     try {
       List<Message> messagesDB = await _messageService.all();
       var messageRecent = messagesDB[0].criadoEm;
@@ -48,7 +48,7 @@ class MessageRepository implements IMessageRepository {
   @override
   Future<List<Message>> fetchMessages(int codigoEol, int userId) async {
     try {
-      final User user = await _userService.find(userId);
+      final Usuario user = await _userService.find(userId);
       List<Message> messagesDB = await _messageService.all();
       List<Message> messagesDBForEOL = messagesDB
           .where((element) => element.codigoEOL == codigoEol)
@@ -97,7 +97,7 @@ class MessageRepository implements IMessageRepository {
   @override
   Future<bool> readMessage(int notificacaoId, int usuarioId, int codigoAlunoEol,
       bool mensagemVisualia) async {
-    final User user = await _userService.find(usuarioId);
+    final Usuario user = await _userService.find(usuarioId);
 
     Map data = {
       "notificacaoId": notificacaoId,
@@ -136,7 +136,7 @@ class MessageRepository implements IMessageRepository {
       int codigoEol, int idNotificacao, int userId) async {
     List<Message> messagesDB = await _messageService.all();
     try {
-      final User user = await _userService.find(userId);
+      final Usuario user = await _userService.find(userId);
       final response = await http.delete(
           "${ApiUtil.HOST}/Mensagens/$idNotificacao/$codigoEol",
           headers: {

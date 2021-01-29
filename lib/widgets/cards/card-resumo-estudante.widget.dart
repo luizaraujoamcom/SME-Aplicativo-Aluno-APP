@@ -2,16 +2,16 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sme_app_aluno/models/student/student.dart';
-import 'package:sme_app_aluno/views/students/resume_studants/resume_studants.dart';
+import 'package:sme_app_aluno/views/views.dart';
 import 'package:sme_app_aluno/widgets/student_info/student_info.dart';
 
-class CardResumeStudent extends StatelessWidget {
+class EACardResumoEstudante extends StatelessWidget {
   final Student student;
   final int userId;
   final String groupSchool;
   final Widget child;
 
-  CardResumeStudent(
+  EACardResumoEstudante(
       {@required this.student, this.groupSchool, this.child, this.userId});
 
   @override
@@ -106,7 +106,7 @@ class CardResumeStudent extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ResumeStudants(
+                          builder: (context) => EstudanteResumoView(
                               student: student,
                               groupSchool: groupSchool,
                               userId: userId)));

@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 import 'package:sme_app_aluno/models/change_email_and_phone/data_change_email_and_phone.dart';
 import 'package:sme_app_aluno/models/first_access/data.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/repositories/first_access_repository.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 
@@ -49,7 +49,7 @@ abstract class _FirstAccessControllerBase with Store {
 
   @action
   loadUserForStorage(int userId) async {
-    User user = await _userService.find(userId);
+    Usuario user = await _userService.find(userId);
     currentEmail = user.email;
     currentPhone = user.celular;
   }

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:sme_app_aluno/interfaces/student_repository_interface.dart';
 import 'package:http/http.dart' as http;
 import 'package:sme_app_aluno/models/student/data_student.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/utils.dart';
 
@@ -12,7 +12,7 @@ class StudentRepository implements IStudentsRepository {
 
   @override
   Future<DataStudent> fetchStudents(String cpf, int id) async {
-    final User user = await _userService.find(id);
+    final Usuario user = await _userService.find(id);
     try {
       final response = await http.post("${ApiUtil.HOST}/Aluno?cpf=$cpf",
           headers: {"Authorization": "Bearer ${user.token}"});

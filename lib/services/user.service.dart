@@ -1,5 +1,5 @@
 import 'package:sme_app_aluno/models/message/message.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/services/db.service.dart';
 import 'package:sme_app_aluno/utils/db/db_settings.dart';
 import 'package:sqflite/sqflite.dart';
@@ -7,14 +7,14 @@ import 'package:sqflite/sqflite.dart';
 class UserService {
   final dbHelper = DBHelper();
 
-  Future<List<User>> all() async {
+  Future<List<Usuario>> all() async {
     try {
       final Database _db = await dbHelper.initDatabase();
       final List<Map<String, dynamic>> maps = await _db.query(TB_USER);
       var users = List.generate(
         maps.length,
         (i) {
-          return User(
+          return Usuario(
             id: maps[i]['id'],
             nome: maps[i]['nome'],
             cpf: maps[i]['cpf'],
@@ -33,11 +33,11 @@ class UserService {
       return users;
     } catch (ex) {
       print(ex);
-      return new List<User>();
+      return new List<Usuario>();
     }
   }
 
-  Future create(User model) async {
+  Future create(Usuario model) async {
     final Database _db = await dbHelper.initDatabase();
     try {
       await _db.insert(TB_USER, model.toMap(),
@@ -51,12 +51,12 @@ class UserService {
     }
   }
 
-  Future<User> find(int id) async {
+  Future<Usuario> find(int id) async {
     final Database _db = await dbHelper.initDatabase();
     try {
       final List<Map<String, dynamic>> maps =
           await _db.query(TB_USER, where: "id = ?", whereArgs: [id]);
-      User user = User(
+      Usuario user = Usuario(
         id: maps[0]['id'],
         nome: maps[0]['nome'],
         cpf: maps[0]['cpf'],
@@ -75,11 +75,11 @@ class UserService {
       print("<--------------------------");
       print("Erro ao encontrar usuário: $ex");
       print("<--------------------------");
-      return new User();
+      return new Usuario();
     }
   }
 
-  Future update(User model) async {
+  Future update(Usuario model) async {
     try {
       final Database _db = await dbHelper.initDatabase();
       await _db.update(

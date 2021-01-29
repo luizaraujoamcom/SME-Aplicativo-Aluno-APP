@@ -6,12 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.dart';
 import 'package:sme_app_aluno/views/recover_password/recover_password.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
-import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/utils/navigator.util.dart';
 import 'package:sme_app_aluno/themes/app.theme.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/views/views.dart';
@@ -56,7 +56,7 @@ class _LoginState extends State<Login> {
 
   _navigateToScreen() async {
     if (_authenticateController.currentUser.data != null) {
-      User user =
+      Usuario user =
           await _userService.find(_authenticateController.currentUser.data.id);
       if (_authenticateController.currentUser.data.primeiroAcesso) {
         Nav.push(

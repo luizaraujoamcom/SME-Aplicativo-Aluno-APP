@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:sme_app_aluno/interfaces/settings_repository_interface.dart';
 import 'package:sme_app_aluno/models/settings/data.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/utils.dart';
 
@@ -13,7 +13,7 @@ class SettingsRepository implements ISettingsRepository {
   @override
   Future<Data> changePassword(
       String password, String oldPassword, int userId) async {
-    final User user = await _userService.find(userId);
+    final Usuario user = await _userService.find(userId);
 
     Map _data = {
       "novaSenha": password,
@@ -34,7 +34,7 @@ class SettingsRepository implements ISettingsRepository {
       if (response.statusCode == 200) {
         var decodeJson = jsonDecode(response.body);
         var data = Data.fromJson(decodeJson);
-        await _userService.update(User(
+        await _userService.update(Usuario(
           id: user.id,
           nome: user.nome,
           cpf: user.cpf,

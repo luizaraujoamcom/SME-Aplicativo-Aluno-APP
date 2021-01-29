@@ -10,8 +10,8 @@ import 'package:sme_app_aluno/controllers/auth/recover_password.controller.dart'
 import 'package:sme_app_aluno/views/login.view.dart';
 import 'package:sme_app_aluno/views/redefine_password/redefine_password.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
-import 'package:sme_app_aluno/utils/navigator.dart';
-import 'package:sme_app_aluno/utils/string_support.dart';
+import 'package:sme_app_aluno/utils/navigator.util.dart';
+import 'package:sme_app_aluno/utils/string-support.util.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class ShowInfo extends StatefulWidget {

@@ -7,21 +7,20 @@ import 'package:sme_app_aluno/views/frequency/frequency.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
 import 'package:sme_app_aluno/views/notes/expansion.dart';
 import 'package:sme_app_aluno/widgets/student_info/student_info.dart';
-import 'package:sme_app_aluno/utils/conection.dart';
-import 'package:sme_app_aluno/utils/date_format.dart';
+import 'package:sme_app_aluno/utils/utils.dart';
 
-class ResumeStudants extends StatefulWidget {
+class EstudanteResumoView extends StatefulWidget {
   final Student student;
   final int userId;
   final String groupSchool;
 
-  ResumeStudants({@required this.student, this.groupSchool, this.userId});
+  EstudanteResumoView({@required this.student, this.groupSchool, this.userId});
 
   @override
-  _ResumeStudantsState createState() => _ResumeStudantsState();
+  _EstudanteResumoViewState createState() => _EstudanteResumoViewState();
 }
 
-class _ResumeStudantsState extends State<ResumeStudants> {
+class _EstudanteResumoViewState extends State<EstudanteResumoView> {
   bool abaDados = true;
   bool abaBoletim = false;
   bool abaFrequencia = false;

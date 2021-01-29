@@ -15,9 +15,9 @@ import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
 import 'package:sme_app_aluno/views/views.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/widgets/tag/tag_custom.dart';
-import 'package:sme_app_aluno/utils/conection.dart';
+import 'package:sme_app_aluno/utils/conection.util.dart';
 import 'package:sme_app_aluno/controllers/event/event.controller.dart';
-import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/utils/navigator.util.dart';
 
 class DashboardView extends StatefulWidget {
   final Student student;
@@ -153,7 +153,7 @@ class _DashboardState extends State<DashboardView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  CardResumeStudent(
+                  EACardResumoEstudante(
                     student: widget.student,
                     groupSchool: widget.groupSchool,
                     userId: widget.userId,

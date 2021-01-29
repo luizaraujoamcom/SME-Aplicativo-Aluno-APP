@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
-import 'package:sme_app_aluno/utils/date_format.dart';
-import 'package:sme_app_aluno/utils/string_support.dart';
+import 'package:sme_app_aluno/utils/date-format.util.dart';
+import 'package:sme_app_aluno/utils/string-support.util.dart';
 
 class EACardMensagemRecente extends StatefulWidget {
   final Message message;

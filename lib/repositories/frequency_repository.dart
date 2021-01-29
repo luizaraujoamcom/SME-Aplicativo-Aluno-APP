@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:sme_app_aluno/interfaces/frequency_repository_interface.dart';
 import 'package:sme_app_aluno/models/frequency/curricular_component.dart';
 import 'package:sme_app_aluno/models/frequency/frequency.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/utils.dart';
 
@@ -18,7 +18,7 @@ class FrequencyRepository implements IFrequencyRepository {
     String codigoAluno,
     int userId,
   ) async {
-    User user = await _userService.find(userId);
+    Usuario user = await _userService.find(userId);
     try {
       final response = await http.get(
           "${ApiUtil.HOST}/Aluno/frequencia?AnoLetivo=$anoLetivo&CodigoUe=$codigoUe&CodigoTurma=$codigoTurma&CodigoAluno=$codigoAluno",

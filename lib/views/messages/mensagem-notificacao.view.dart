@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
 import 'package:sme_app_aluno/views/views.dart';
 import 'package:sme_app_aluno/utils/utils.dart';
@@ -54,7 +54,7 @@ class _ViewMessageNotificationState extends State<MensagemNotificacaoView> {
   }
 
   _navigateToListMessage() async {
-    final User user = await _userService.find(widget.userId);
+    final Usuario user = await _userService.find(widget.userId);
 
     Nav.push(
         context,

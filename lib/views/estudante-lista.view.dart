@@ -1,20 +1,21 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:background_fetch/background_fetch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sme_app_aluno/controllers/students/students.controller.dart';
 import 'package:sme_app_aluno/controllers/background_fetch/background_fetch.controller.dart';
 import 'package:sme_app_aluno/models/student/student.dart';
-import 'package:sme_app_aluno/models/user/user.dart';
+import 'package:sme_app_aluno/models/models.dart';
 import 'package:sme_app_aluno/views/dashboard.view.dart';
 import 'package:sme_app_aluno/views/login.view.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/widgets/tag/tag_custom.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
-import 'package:sme_app_aluno/utils/auth.dart';
-import 'package:sme_app_aluno/utils/global_config.dart';
-import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/utils/auth.util.dart';
+import 'package:sme_app_aluno/utils/global-config.util.dart';
+import 'package:sme_app_aluno/utils/navigator.util.dart';
 
 class EstudanteListaView extends StatefulWidget {
   final int userId;
@@ -39,7 +40,7 @@ class _ListStudantsState extends State<EstudanteListaView> {
     _loadingAllStudents();
     _backgroundFetchController.initPlatformState(
       _onBackgroundFetch,
-      "${GlobalConfig.BUNDLE_IDENTIFIER}.verificaSeUsuarioTemAlunoVinculado",
+      "${env['BUNDLE_IDENTIFIER']}.verificaSeUsuarioTemAlunoVinculado",
       10000,
     );
   }
@@ -48,7 +49,7 @@ class _ListStudantsState extends State<EstudanteListaView> {
     bool responsibleHasStudent = await _backgroundFetchController
         .checkIfResponsibleHasStudent(widget.userId);
     print(
-        '[BackgroundFetch] - INIT -> ${GlobalConfig.BUNDLE_IDENTIFIER}.verificaSeUsuarioTemAlunoVinculado');
+        '[BackgroundFetch] - INIT -> ${env['BUNDLE_IDENTIFIER']}.verificaSeUsuarioTemAlunoVinculado');
     if (responsibleHasStudent == false) {
       Auth.logout(context, widget.userId, true);
     }
@@ -57,7 +58,7 @@ class _ListStudantsState extends State<EstudanteListaView> {
   }
 
   _logoutUser() async {
-    List<User> findUsers = await _userService.all();
+    List<Usuario> findUsers = await _userService.all();
     await Auth.logout(context, findUsers[0].id, true);
   }
 
@@ -121,7 +122,7 @@ class _ListStudantsState extends State<EstudanteListaView> {
   }
 
   _loadingAllStudents() async {
-    final User user = await _userService.find(widget.userId);
+    final Usuario user = await _userService.find(widget.userId);
     await _studentsController.loadingStudents(user.cpf, user.id);
   }
 

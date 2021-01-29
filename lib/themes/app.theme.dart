@@ -16,5 +16,8 @@ const corCinzaMedio3 = const Color(0xff6e6e6e);
 const corCinzaMedio4 = const Color(0xff757575);
 const corAmarelo = const Color(0xffDE9524);
 const corAmarelo1 = const Color(0xffffd037);
+const corAmarelo2 = const Color(0xFFEEC25E);
 
-ThemeData appTheme() {}
+ThemeData appTheme() {
+  return ThemeData(primaryColor: corAmarelo2);
+}
