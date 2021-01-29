@@ -13,3 +13,6 @@ export 'drawer-menu.view.dart';
 //Termos
 export 'termos-uso.view.dart';
 export 'termos.view.dart';
+
+//Estudante
+export 'estudante-lista.view.dart';

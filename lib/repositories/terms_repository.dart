@@ -3,14 +3,13 @@ import 'package:sme_app_aluno/interfaces/terms_repository_interface.dart';
 import 'package:http/http.dart' as http;
 import 'package:sme_app_aluno/models/terms/term.dart';
 import 'package:sme_app_aluno/models/user/data.dart';
-import 'package:sme_app_aluno/utils/api.dart';
-import 'package:sme_app_aluno/utils/global_config.dart';
+import 'package:sme_app_aluno/utils/utils.dart';
 
 class TermsRepository extends ITermsRepository {
   @override
   Future<dynamic> fetchTerms(String cpf) async {
     try {
-      var response = await http.get("${Api.HOST}/TermosDeUso?cpf=$cpf");
+      var response = await http.get("${ApiUtil.HOST}/TermosDeUso?cpf=$cpf");
       if (response.statusCode == 200) {
         var decodeJson = jsonDecode(response.body);
         final termo = Term.fromJson(decodeJson);
@@ -30,7 +29,7 @@ class TermsRepository extends ITermsRepository {
   @override
   Future<dynamic> fetchTermsCurrentUser() async {
     try {
-      var response = await http.get("${Api.HOST}/TermosDeUso/logado");
+      var response = await http.get("${ApiUtil.HOST}/TermosDeUso/logado");
       if (response.statusCode == 200) {
         var decodeJson = jsonDecode(response.body);
         final termo = Term.fromJson(decodeJson);
@@ -63,11 +62,12 @@ class TermsRepository extends ITermsRepository {
     var body = json.encode(data);
 
     try {
-      var response = await http.post("${Api.HOST}/TermosDeUso/registrar-aceite",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: body);
+      var response =
+          await http.post("${ApiUtil.HOST}/TermosDeUso/registrar-aceite",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: body);
       if (response.statusCode == 200) {
         return response.body == true.toString() ? true : false;
       } else {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class EAIconButton extends StatelessWidget {
+class EAButtonIcone extends StatelessWidget {
   final Function onPress;
   final double screenHeight;
   final Icon iconBtn;
 
-  EAIconButton({
+  EAButtonIcone({
     @required this.onPress,
     @required this.screenHeight,
     @required this.iconBtn,

@@ -6,10 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
-import 'package:sme_app_aluno/widgets/buttons/icon-button.widget.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
-import 'package:sme_app_aluno/utils/conection.dart';
-import 'package:sme_app_aluno/utils/date_format.dart';
+import 'package:sme_app_aluno/utils/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ViewMessage extends StatefulWidget {
@@ -208,7 +206,7 @@ class _ViewMessageState extends State<ViewMessage> {
                     Container(
                       child: Row(
                         children: <Widget>[
-                          EAIconButton(
+                          EAButtonIcone(
                             iconBtn: Icon(
                               FontAwesomeIcons.trashAlt,
                               color: Color(0xffC65D00),
@@ -222,7 +220,7 @@ class _ViewMessageState extends State<ViewMessage> {
                           ),
                           Visibility(
                             visible: messageIsRead,
-                            child: EAIconButton(
+                            child: EAButtonIcone(
                                 iconBtn: Icon(
                                   FontAwesomeIcons.envelope,
                                   color: Color(0xffC65D00),

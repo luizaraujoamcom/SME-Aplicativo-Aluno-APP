@@ -7,13 +7,10 @@ import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
-import 'package:sme_app_aluno/views/students/list_studants.dart';
-import 'package:sme_app_aluno/widgets/buttons/icon-button.widget.dart';
+import 'package:sme_app_aluno/views/views.dart';
+import 'package:sme_app_aluno/utils/utils.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
-import 'package:sme_app_aluno/utils/conection.dart';
-import 'package:sme_app_aluno/utils/date_format.dart';
-import 'package:sme_app_aluno/utils/navigator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MensagemNotificacaoView extends StatefulWidget {
@@ -61,7 +58,7 @@ class _ViewMessageNotificationState extends State<MensagemNotificacaoView> {
 
     Nav.push(
         context,
-        ListStudants(
+        EstudanteListaView(
           userId: user.id,
         ));
   }
@@ -195,7 +192,7 @@ class _ViewMessageNotificationState extends State<MensagemNotificacaoView> {
                           ),
                           Visibility(
                             visible: messageIsRead,
-                            child: EAIconButton(
+                            child: EAButtonIcone(
                                 iconBtn: Icon(
                                   FontAwesomeIcons.envelope,
                                   color: Color(0xffC65D00),

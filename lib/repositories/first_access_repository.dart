@@ -6,8 +6,7 @@ import 'package:sme_app_aluno/models/change_email_and_phone/data_change_email_an
 import 'package:sme_app_aluno/models/first_access/data.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
-import 'package:sme_app_aluno/utils/api.dart';
-import 'package:sme_app_aluno/utils/global_config.dart';
+import 'package:sme_app_aluno/utils/utils.dart';
 
 class FirstAccessRepository implements IFirstAccessRepository {
   final UserService _userService = UserService();
@@ -24,7 +23,7 @@ class FirstAccessRepository implements IFirstAccessRepository {
     var body = json.encode(_data);
     try {
       final response = await http.post(
-        "${Api.HOST}/Autenticacao/PrimeiroAcesso",
+        "${ApiUtil.HOST}/Autenticacao/PrimeiroAcesso",
         headers: {
           "Authorization": "Bearer ${user.token}",
           "Content-Type": "application/json",
@@ -74,7 +73,7 @@ class FirstAccessRepository implements IFirstAccessRepository {
     var body = json.encode(_data);
     try {
       final response = await http.post(
-        "${Api.HOST}/Autenticacao/AlterarEmailCelular",
+        "${ApiUtil.HOST}/Autenticacao/AlterarEmailCelular",
         headers: {
           "Authorization": "Bearer $token",
           "Content-Type": "application/json",

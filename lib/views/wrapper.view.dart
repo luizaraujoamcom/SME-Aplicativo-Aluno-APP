@@ -2,7 +2,6 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:getflutter/getflutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
@@ -11,7 +10,6 @@ import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.
 import 'package:sme_app_aluno/views/login.view.dart';
 import 'package:sme_app_aluno/views/messages/mensagem-notificacao.view.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
-import 'package:sme_app_aluno/views/students/list_studants.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
@@ -123,7 +121,7 @@ class _WrapperState extends State<WrapperView> {
               userId: _authenticateController.user.id,
             );
           } else {
-            return ListStudants(
+            return EstudanteListaView(
               userId: _authenticateController.user.id,
             );
           }

@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:getflutter/getflutter.dart';
 import 'package:sme_app_aluno/controllers/auth/recover_password.controller.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
-import 'package:sme_app_aluno/views/students/list_studants.dart';
+import 'package:sme_app_aluno/views/views.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/widgets/check_line/check_line.dart';
 import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
@@ -61,7 +60,7 @@ class _RedefinePasswordState extends State<RedefinePassword> {
           await _userService.find(_recoverPasswordController.dataUser.data.id);
       Nav.push(
         context,
-        ListStudants(
+        EstudanteListaView(
           userId: user.id,
         ),
       );

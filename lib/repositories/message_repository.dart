@@ -5,7 +5,7 @@ import 'package:sme_app_aluno/models/message/message.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/services/message.service.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
-import 'package:sme_app_aluno/utils/api.dart';
+import 'package:sme_app_aluno/utils/utils.dart';
 
 class MessageRepository implements IMessageRepository {
   final UserService _userService = UserService();
@@ -17,11 +17,12 @@ class MessageRepository implements IMessageRepository {
       var messageRecent = messagesDB[0].criadoEm;
       var dateFormaet = messageRecent.replaceAll(':', '%3A');
 
-      final response = await http
-          .get("${Api.HOST}/Mensagens/$codigoEol/desde/$dateFormaet", headers: {
-        "Authorization": "Bearer ${user.token}",
-        "Content-Type": "application/json",
-      });
+      final response = await http.get(
+          "${ApiUtil.HOST}/Mensagens/$codigoEol/desde/$dateFormaet",
+          headers: {
+            "Authorization": "Bearer ${user.token}",
+            "Content-Type": "application/json",
+          });
 
       if (response.statusCode == 200) {
         List<dynamic> messagesResponse = jsonDecode(response.body);
@@ -56,7 +57,8 @@ class MessageRepository implements IMessageRepository {
         var response = await fetchNewMessages(codigoEol, user);
         return response;
       } else {
-        final response = await http.get("${Api.HOST}/Notificacao/$codigoEol",
+        final response = await http.get(
+            "${ApiUtil.HOST}/Notificacao/$codigoEol",
             headers: {"Authorization": "Bearer ${user.token}"});
 
         if (response.statusCode == 200) {
@@ -109,7 +111,7 @@ class MessageRepository implements IMessageRepository {
 
     try {
       final response = await http.post(
-        "${Api.HOST}/UsuarioNotificacaoLeitura",
+        "${ApiUtil.HOST}/UsuarioNotificacaoLeitura",
         headers: {
           "Authorization": "Bearer ${user.token}",
           "Content-Type": "application/json",
@@ -135,11 +137,12 @@ class MessageRepository implements IMessageRepository {
     List<Message> messagesDB = await _messageService.all();
     try {
       final User user = await _userService.find(userId);
-      final response = await http
-          .delete("${Api.HOST}/Mensagens/$idNotificacao/$codigoEol", headers: {
-        "Authorization": "Bearer ${user.token}",
-        "Content-Type": "application/json",
-      });
+      final response = await http.delete(
+          "${ApiUtil.HOST}/Mensagens/$idNotificacao/$codigoEol",
+          headers: {
+            "Authorization": "Bearer ${user.token}",
+            "Content-Type": "application/json",
+          });
       if (response.statusCode == 200) {
         await _messageService.delete(idNotificacao);
 

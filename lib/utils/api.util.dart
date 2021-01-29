@@ -1,4 +1,4 @@
-class Api {
+class ApiUtil {
   static final String HOST_DEV =
       'https://dev-appaluno.sme.prefeitura.sp.gov.br/api/v1';
   static final String HOST_HML =

@@ -6,14 +6,12 @@ import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
 import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/views/calendar/list_events.dart';
-import 'package:sme_app_aluno/views/login.view.dart';
 import 'package:sme_app_aluno/views/messages/mensagem-lista.view.dart';
 import 'package:sme_app_aluno/views/settings/settings.dart';
-import 'package:sme_app_aluno/views/students/list_studants.dart';
 import 'package:sme_app_aluno/views/students/resume_studants/resume_studants.dart';
-import 'package:sme_app_aluno/views/termos-uso.view.dart';
 import 'package:sme_app_aluno/utils/auth.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/views/views.dart';
 
 class DrawerMenuView extends StatefulWidget {
   final Student student;
@@ -65,7 +63,7 @@ class _DrawerMenuState extends State<DrawerMenuView> {
     if (_authenticateController.user != null) {
       Nav.push(
           context,
-          ListStudants(
+          EstudanteListaView(
             userId: _authenticateController.user.id,
           ));
     } else {

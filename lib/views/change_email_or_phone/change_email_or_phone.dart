@@ -6,17 +6,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:getflutter/getflutter.dart';
 import 'package:mobx/mobx.dart';
 import 'package:sme_app_aluno/controllers/auth/first_access.controller.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
-import 'package:sme_app_aluno/views/students/list_studants.dart';
-import 'package:sme_app_aluno/widgets/buttons/back-button.widget.dart';
+import 'package:sme_app_aluno/themes/app.theme.dart';
+import 'package:sme_app_aluno/views/estudante-lista.view.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
-import 'package:sme_app_aluno/utils/auth.dart';
-import 'package:sme_app_aluno/utils/string_support.dart';
+import 'package:sme_app_aluno/utils/utils.dart';
 import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class ChangeEmailOrPhone extends StatefulWidget {
@@ -110,7 +108,7 @@ class _ChangeEmailOrPhoneState extends State<ChangeEmailOrPhone> {
     Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ListStudants(
+          builder: (context) => EstudanteListaView(
             userId: widget.userId,
           ),
         ));
@@ -366,7 +364,7 @@ class _ChangeEmailOrPhoneState extends State<ChangeEmailOrPhone> {
                                             },
                                           ),
                                           SizedBox(height: screenHeight * 3),
-                                          EABackButton(
+                                          EAButtonVoltar(
                                               text: "CADASTRAR MAIS TARDE",
                                               btnColor: Color(0xffd06d12),
                                               icon:
@@ -387,8 +385,7 @@ class _ChangeEmailOrPhoneState extends State<ChangeEmailOrPhone> {
                   Container(
                     height: screenHeight * 6,
                     margin: EdgeInsets.only(top: 70),
-                    child: Image.asset("assets/images/logo_sme.png",
-                        fit: BoxFit.cover),
+                    child: Image.asset(assetLogoSME, fit: BoxFit.cover),
                   ),
                 ],
               ),

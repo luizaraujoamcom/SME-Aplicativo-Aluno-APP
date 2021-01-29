@@ -9,7 +9,6 @@ import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.dart';
 import 'package:sme_app_aluno/views/recover_password/recover_password.dart';
-import 'package:sme_app_aluno/views/students/list_studants.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
@@ -76,7 +75,7 @@ class _LoginState extends State<Login> {
       } else {
         Nav.push(
             context,
-            ListStudants(
+            EstudanteListaView(
               userId: user.id,
             ));
       }

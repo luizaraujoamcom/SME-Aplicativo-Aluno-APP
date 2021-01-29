@@ -3,33 +3,29 @@ import 'package:background_fetch/background_fetch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:getflutter/components/loader/gf_loader.dart';
-import 'package:getflutter/size/gf_size.dart';
-import 'package:getflutter/types/gf_loader_type.dart';
 import 'package:sme_app_aluno/controllers/students/students.controller.dart';
 import 'package:sme_app_aluno/controllers/background_fetch/background_fetch.controller.dart';
 import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/views/dashboard.view.dart';
 import 'package:sme_app_aluno/views/login.view.dart';
-import 'package:sme_app_aluno/views/students/widgets/cards/card_students.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/widgets/tag/tag_custom.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/auth.dart';
 import 'package:sme_app_aluno/utils/global_config.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
-import 'package:sme_app_aluno/widgets/widgets.dart';
 
-class ListStudants extends StatefulWidget {
+class EstudanteListaView extends StatefulWidget {
   final int userId;
 
-  ListStudants({@required this.userId});
+  EstudanteListaView({@required this.userId});
 
   @override
   _ListStudantsState createState() => _ListStudantsState();
 }
 
-class _ListStudantsState extends State<ListStudants> {
+class _ListStudantsState extends State<EstudanteListaView> {
   final UserService _userService = UserService();
 
   StudentsController _studentsController;
@@ -67,7 +63,7 @@ class _ListStudantsState extends State<ListStudants> {
 
   Widget _itemCardStudent(BuildContext context, Student model,
       String groupSchool, int codigoGrupo, int userId) {
-    return CardStudent(
+    return EACardEstuante(
       name: model.nomeSocial != null && model.nomeSocial.isNotEmpty
           ? model.nomeSocial
           : model.nome,

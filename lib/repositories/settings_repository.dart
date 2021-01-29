@@ -5,8 +5,7 @@ import 'package:sme_app_aluno/interfaces/settings_repository_interface.dart';
 import 'package:sme_app_aluno/models/settings/data.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
-import 'package:sme_app_aluno/utils/api.dart';
-import 'package:sme_app_aluno/utils/global_config.dart';
+import 'package:sme_app_aluno/utils/utils.dart';
 
 class SettingsRepository implements ISettingsRepository {
   final UserService _userService = UserService();
@@ -25,7 +24,7 @@ class SettingsRepository implements ISettingsRepository {
 
     try {
       final response = await http.put(
-        "${Api.HOST}/Autenticacao/Senha/Alterar",
+        "${ApiUtil.HOST}/Autenticacao/Senha/Alterar",
         headers: {
           "Authorization": "Bearer ${user.token}",
           "Content-Type": "application/json",

@@ -5,9 +5,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sme_app_aluno/controllers/auth/first_access.controller.dart';
 import 'package:sme_app_aluno/views/change_email_or_phone/internal_change_email_or_phone.dart';
 import 'package:sme_app_aluno/views/change_password/change_password.dart';
-import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/widgets/view_data/view.data.dart';
-import 'package:sme_app_aluno/utils/string_support.dart';
+import 'package:sme_app_aluno/utils/utils.dart';
 
 class Settings extends StatefulWidget {
   final String currentCPF;
