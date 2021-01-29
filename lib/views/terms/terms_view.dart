@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:sme_app_aluno/models/terms/term.dart';
-import 'package:sme_app_aluno/views/widgets/buttons/eabutton.dart';
+import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 
 class TermsView extends StatefulWidget {
   final Term term;

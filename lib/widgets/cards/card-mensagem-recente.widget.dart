@@ -5,7 +5,7 @@ import 'package:sme_app_aluno/models/message/message.dart';
 import 'package:sme_app_aluno/utils/date_format.dart';
 import 'package:sme_app_aluno/utils/string_support.dart';
 
-class CardRecentMessage extends StatefulWidget {
+class EACardMensagemRecente extends StatefulWidget {
   final Message message;
   final int countMessages;
   final String token;
@@ -15,7 +15,7 @@ class CardRecentMessage extends StatefulWidget {
   final Function onPress;
   final Function outherRoutes;
 
-  CardRecentMessage(
+  EACardMensagemRecente(
       {this.message,
       this.countMessages,
       this.token,
@@ -29,7 +29,7 @@ class CardRecentMessage extends StatefulWidget {
   _CardRecentMessageState createState() => _CardRecentMessageState();
 }
 
-class _CardRecentMessageState extends State<CardRecentMessage> {
+class _CardRecentMessageState extends State<EACardMensagemRecente> {
   Future<bool> _confirmDeleteMessage(int id) {
     return showDialog(
         context: context,

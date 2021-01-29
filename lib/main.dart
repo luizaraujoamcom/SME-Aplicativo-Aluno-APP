@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:sme_app_aluno/controllers/terms/terms.controller.dart';
-import 'package:sme_app_aluno/views/wrapper/wrapper.dart';
+import 'package:sme_app_aluno/views/views.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/global_config.dart';
 import 'package:sentry/sentry.dart';
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'SME Aplicativo do Aluno',
         theme: ThemeData(primaryColor: Color(0xFFEEC25E)),
-        home: Wrapper(),
+        home: WrapperView(),
       ),
     );
   }

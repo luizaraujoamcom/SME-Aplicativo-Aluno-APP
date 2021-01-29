@@ -5,84 +5,65 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
+import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
-import 'package:sme_app_aluno/views/widgets/buttons/eaicon_button.dart';
-import 'package:sme_app_aluno/views/widgets/cards/index.dart';
+import 'package:sme_app_aluno/views/students/list_studants.dart';
+import 'package:sme_app_aluno/widgets/buttons/icon-button.widget.dart';
+import 'package:sme_app_aluno/widgets/cards/cards.dart';
+import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/date_format.dart';
+import 'package:sme_app_aluno/utils/navigator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ViewMessage extends StatefulWidget {
+class MensagemNotificacaoView extends StatefulWidget {
   final Message message;
-  final int codigoAlunoEol;
   final int userId;
 
-  ViewMessage(
-      {@required this.message,
-      @required this.codigoAlunoEol,
-      @required this.userId});
+  MensagemNotificacaoView({@required this.message, @required this.userId});
 
   @override
-  _ViewMessageState createState() => _ViewMessageState();
+  _ViewMessageNotificationState createState() =>
+      _ViewMessageNotificationState();
 }
 
-class _ViewMessageState extends State<ViewMessage> {
+class _ViewMessageNotificationState extends State<MensagemNotificacaoView> {
   MessagesController _messagesController;
   final scaffoldKey = new GlobalKey<ScaffoldState>();
-
   bool messageIsRead = true;
+  final UserService _userService = UserService();
 
   @override
   void initState() {
     super.initState();
     _messagesController = MessagesController();
-    _viewMessageUpdate(widget.message.mensagemVisualizada, false);
+    _viewMessageUpdate(false, false);
   }
 
-  _viewMessageUpdate(bool mensagemVisualizada, bool action) async {
-    if (!mensagemVisualizada && action) {
+  _viewMessageUpdate(bool isNotRead, bool action) async {
+    if (action) {
       _messagesController.updateMessage(
           notificacaoId: widget.message.id,
           usuarioId: widget.userId,
-          codigoAlunoEol: widget.codigoAlunoEol ?? 0,
+          codigoAlunoEol: widget.message.codigoEOL ?? 0,
           mensagemVisualia: false);
-    } else if (!mensagemVisualizada) {
+    } else {
       _messagesController.updateMessage(
           notificacaoId: widget.message.id,
           usuarioId: widget.userId,
-          codigoAlunoEol: widget.codigoAlunoEol ?? 0,
+          codigoAlunoEol: widget.message.codigoEOL ?? 0,
           mensagemVisualia: true);
     }
   }
 
-  Future<bool> _confirmDeleteMessage(int id) async {
-    return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text("Atenção"),
-            content: Text("Você tem certeza que deseja excluir esta mensagem?"),
-            actions: <Widget>[
-              FlatButton(
-                  child: Text("SIM"),
-                  onPressed: () async {
-                    await _removeMesageToStorage(
-                      widget.codigoAlunoEol,
-                      id,
-                      widget.userId,
-                    );
-                    Navigator.of(context).pop(false);
-                    Navigator.pop(context);
-                  }),
-              FlatButton(
-                child: Text("NÃO"),
-                onPressed: () {
-                  Navigator.of(context).pop(false);
-                },
-              )
-            ],
-          );
-        });
+  _navigateToListMessage() async {
+    final User user = await _userService.find(widget.userId);
+
+    Nav.push(
+        context,
+        ListStudants(
+          userId: user.id,
+        ));
   }
 
   Future<bool> _confirmNotReadeMessage(int id, scaffoldKey) async {
@@ -97,13 +78,13 @@ class _ViewMessageState extends State<ViewMessage> {
               FlatButton(
                   child: Text("SIM"),
                   onPressed: () {
-                    _viewMessageUpdate(false, true);
+                    _viewMessageUpdate(true, true);
                     Navigator.of(context).pop(false);
                     var snackbar = SnackBar(
                         content: Text("Mensagem marcada como não lida"));
                     scaffoldKey.currentState.showSnackBar(snackbar);
                     setState(() {
-                      messageIsRead = false;
+                      messageIsRead = !messageIsRead;
                     });
                   }),
               FlatButton(
@@ -115,10 +96,6 @@ class _ViewMessageState extends State<ViewMessage> {
             ],
           );
         });
-  }
-
-  _removeMesageToStorage(int codigoEol, int idNotificacao, int userId) async {
-    await _messagesController.deleteMessage(codigoEol, idNotificacao, userId);
   }
 
   _launchURL(url) async {
@@ -145,6 +122,11 @@ class _ViewMessageState extends State<ViewMessage> {
         appBar: AppBar(
           title: Text("Mensagens"),
           backgroundColor: Color(0xffEEC25E),
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                _navigateToListMessage();
+              }),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -161,11 +143,11 @@ class _ViewMessageState extends State<ViewMessage> {
                   style: TextStyle(
                       color: Color(0xffDE9524), fontWeight: FontWeight.w500),
                 ),
-                CardMessage(
+                EACardMensagem(
                   headerTitle: widget.message.categoriaNotificacao,
+                  categoriaNotificacao: widget.message.categoriaNotificacao,
                   headerIcon: false,
                   recentMessage: false,
-                  categoriaNotificacao: widget.message.categoriaNotificacao,
                   content: <Widget>[
                     Container(
                       width: screenHeight * 39,
@@ -208,15 +190,6 @@ class _ViewMessageState extends State<ViewMessage> {
                     Container(
                       child: Row(
                         children: <Widget>[
-                          EAIconButton(
-                            iconBtn: Icon(
-                              FontAwesomeIcons.trashAlt,
-                              color: Color(0xffC65D00),
-                            ),
-                            screenHeight: screenHeight,
-                            onPress: () =>
-                                _confirmDeleteMessage(widget.message.id),
-                          ),
                           SizedBox(
                             width: screenHeight * 2,
                           ),
@@ -245,8 +218,8 @@ class _ViewMessageState extends State<ViewMessage> {
                           ),
                         ),
                         child: FlatButton(
-                          onPressed: () {
-                            Navigator.pop(context);
+                          onPressed: () async {
+                            _navigateToListMessage();
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,

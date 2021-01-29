@@ -8,7 +8,7 @@ import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/views/calendar/event_item.dart';
 import 'package:sme_app_aluno/views/calendar/label_event.dart';
 import 'package:sme_app_aluno/views/calendar/title_event.dart';
-import 'package:sme_app_aluno/views/widgets/student_info/student_info.dart';
+import 'package:sme_app_aluno/widgets/student_info/student_info.dart';
 import 'package:getflutter/components/loader/gf_loader.dart';
 import 'package:getflutter/size/gf_size.dart';
 import 'package:getflutter/types/gf_loader_type.dart';

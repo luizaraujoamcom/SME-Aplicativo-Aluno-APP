@@ -10,7 +10,7 @@ import 'package:getflutter/getflutter.dart';
 import 'package:mobx/mobx.dart';
 import 'package:sme_app_aluno/controllers/auth/first_access.controller.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
-import 'package:sme_app_aluno/views/widgets/buttons/eabutton.dart';
+import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/string_support.dart';
 

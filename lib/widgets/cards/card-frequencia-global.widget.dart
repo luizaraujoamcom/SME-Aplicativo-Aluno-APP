@@ -4,10 +4,10 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:sme_app_aluno/models/frequency/frequency.dart';
 
-class FrequencyGlobalCard extends StatelessWidget {
+class EACardFrequenciaGlobal extends StatelessWidget {
   final Frequency frequency;
 
-  FrequencyGlobalCard({
+  EACardFrequenciaGlobal({
     @required this.frequency,
   });
 

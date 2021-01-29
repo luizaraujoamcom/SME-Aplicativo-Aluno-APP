@@ -9,20 +9,20 @@ import 'package:sme_app_aluno/models/message/message.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.dart';
 import 'package:sme_app_aluno/views/firstAccess/firstAccess.dart';
-import 'package:sme_app_aluno/views/login/login.dart';
-import 'package:sme_app_aluno/views/messages/view_message_notification.dart';
+import 'package:sme_app_aluno/views/login.view.dart';
+import 'package:sme_app_aluno/views/messages/mensagem-notificacao.view.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
 import 'package:sme_app_aluno/views/students/list_studants.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
 
-class Wrapper extends StatefulWidget {
+class WrapperView extends StatefulWidget {
   @override
   _WrapperState createState() => _WrapperState();
 }
 
-class _WrapperState extends State<Wrapper> {
+class _WrapperState extends State<WrapperView> {
   final UserService _userService = UserService();
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
@@ -89,7 +89,7 @@ class _WrapperState extends State<Wrapper> {
     );
     Nav.push(
         context,
-        ViewMessageNotification(
+        MensagemNotificacaoView(
           message: _message,
           userId: user.id,
         ));

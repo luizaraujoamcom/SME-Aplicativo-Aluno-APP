@@ -9,7 +9,7 @@ import 'package:sme_app_aluno/controllers/note/list_notes.controller.dart';
 import 'package:sme_app_aluno/views/notes/notes_body.dart';
 import 'package:sme_app_aluno/views/notes/obs_body.dart';
 import 'package:sme_app_aluno/views/notes/tile_item.dart';
-import 'package:sme_app_aluno/views/widgets/cards/card_alert.dart';
+import 'package:sme_app_aluno/widgets/cards/cards.dart';
 
 class Expansion extends StatefulWidget {
   final String codigoUe;
@@ -370,7 +370,7 @@ class _ExpansionState extends State<Expansion> {
               ]));
             }
 
-            return CardAlert(
+            return EACardAlerta(
               title: "NOTAS",
               icon: Icon(
                 FontAwesomeIcons.calendarAlt,

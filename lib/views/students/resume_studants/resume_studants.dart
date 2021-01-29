@@ -6,7 +6,7 @@ import 'package:sme_app_aluno/views/data_student/data.dart';
 import 'package:sme_app_aluno/views/frequency/frequency.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
 import 'package:sme_app_aluno/views/notes/expansion.dart';
-import 'package:sme_app_aluno/views/widgets/student_info/student_info.dart';
+import 'package:sme_app_aluno/widgets/student_info/student_info.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/date_format.dart';
 

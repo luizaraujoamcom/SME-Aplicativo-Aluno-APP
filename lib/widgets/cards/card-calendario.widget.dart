@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CardCalendar extends StatelessWidget {
+class EACardCalendario extends StatelessWidget {
   final String title;
   final String month;
   final String text;
@@ -14,7 +14,7 @@ class CardCalendar extends StatelessWidget {
   final int lenght;
   final double heightContainer;
 
-  CardCalendar({
+  EACardCalendario({
     this.title,
     this.month,
     this.text,

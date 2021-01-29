@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CardMessage extends StatelessWidget {
+class EACardMensagem extends StatelessWidget {
   final String headerTitle;
   final bool headerIcon;
   final List<Widget> content;
@@ -12,7 +12,7 @@ class CardMessage extends StatelessWidget {
   final List<Widget> footerContent;
   final String categoriaNotificacao;
 
-  CardMessage(
+  EACardMensagem(
       {this.headerTitle,
       this.headerIcon,
       this.content,

@@ -17,11 +17,11 @@ import 'package:sme_app_aluno/controllers/terms/terms.controller.dart';
 import 'package:sme_app_aluno/models/terms/term.dart';
 import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.dart';
 import 'package:sme_app_aluno/views/terms/terms_view.dart';
-import 'package:sme_app_aluno/views/widgets/buttons/eaback_button.dart';
+import 'package:sme_app_aluno/widgets/buttons/back-button.widget.dart';
 
-import 'package:sme_app_aluno/views/widgets/buttons/eabutton.dart';
-import 'package:sme_app_aluno/views/widgets/check_line/check_line.dart';
-import 'package:sme_app_aluno/views/widgets/info_box/info_box.dart';
+import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
+import 'package:sme_app_aluno/widgets/check_line/check_line.dart';
+import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
 import 'package:sme_app_aluno/utils/auth.dart';
 
 class FirstAccess extends StatefulWidget {

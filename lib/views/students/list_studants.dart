@@ -10,10 +10,10 @@ import 'package:sme_app_aluno/controllers/students/students.controller.dart';
 import 'package:sme_app_aluno/controllers/background_fetch/background_fetch.controller.dart';
 import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
-import 'package:sme_app_aluno/views/dashboard/dashboard.dart';
-import 'package:sme_app_aluno/views/login/login.dart';
+import 'package:sme_app_aluno/views/dashboard.view.dart';
+import 'package:sme_app_aluno/views/login.view.dart';
 import 'package:sme_app_aluno/views/students/widgets/cards/card_students.dart';
-import 'package:sme_app_aluno/views/widgets/tag/tag_custom.dart';
+import 'package:sme_app_aluno/widgets/tag/tag_custom.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/auth.dart';
 import 'package:sme_app_aluno/utils/global_config.dart';
@@ -78,7 +78,7 @@ class _ListStudantsState extends State<ListStudants> {
       onPress: () {
         Nav.push(
             context,
-            Dashboard(
+            DashboardView(
                 userId: widget.userId,
                 student: model,
                 groupSchool: groupSchool,

@@ -8,28 +8,28 @@ import 'package:getflutter/types/gf_loader_type.dart';
 import 'package:provider/provider.dart';
 import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
-import 'package:sme_app_aluno/views/messages/view_message.dart';
+import 'package:sme_app_aluno/views/messages/mensagem.view.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
 
-import 'package:sme_app_aluno/views/widgets/cards/index.dart';
-import 'package:sme_app_aluno/views/widgets/filters/eaq_filter_page.dart';
+import 'package:sme_app_aluno/widgets/cards/cards.dart';
+import 'package:sme_app_aluno/widgets/filters/eaq_filter_page.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/date_format.dart';
 import 'package:sme_app_aluno/utils/string_support.dart';
 
-class ListMessages extends StatefulWidget {
+class MensagemListaView extends StatefulWidget {
   final int codigoGrupo;
   final int codigoAlunoEol;
   final int userId;
 
-  ListMessages(
+  MensagemListaView(
       {@required this.codigoGrupo,
       @required this.codigoAlunoEol,
       @required this.userId});
   _ListMessageState createState() => _ListMessageState();
 }
 
-class _ListMessageState extends State<ListMessages> {
+class _ListMessageState extends State<MensagemListaView> {
   MessagesController _messagesController;
   List<Message> listOfmessages;
   bool dreCheck = true;
@@ -107,7 +107,7 @@ class _ListMessageState extends State<ListMessages> {
                   onTap: () {
                     _navigateToMessage(context, item);
                   },
-                  child: CardMessage(
+                  child: EACardMensagem(
                     headerTitle: item.categoriaNotificacao,
                     headerIcon: true,
                     recentMessage: !item.mensagemVisualizada,
@@ -289,7 +289,7 @@ class _ListMessageState extends State<ListMessages> {
                   _navigateToMessage(
                       context, _messagesController.messages.first);
                 },
-                child: CardMessage(
+                child: EACardMensagem(
                   headerTitle:
                       _messagesController.messages.first.categoriaNotificacao,
                   headerIcon: true,

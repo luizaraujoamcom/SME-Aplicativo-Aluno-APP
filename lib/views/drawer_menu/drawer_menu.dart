@@ -6,7 +6,7 @@ import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
 import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/views/calendar/list_events.dart';
-import 'package:sme_app_aluno/views/login/login.dart';
+import 'package:sme_app_aluno/views/login.view.dart';
 import 'package:sme_app_aluno/views/messages/list_messages.dart';
 import 'package:sme_app_aluno/views/settings/settings.dart';
 import 'package:sme_app_aluno/views/students/list_studants.dart';

@@ -12,25 +12,23 @@ import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/views/calendar/event_item.dart';
 import 'package:sme_app_aluno/views/calendar/list_events.dart';
 import 'package:sme_app_aluno/views/calendar/title_event.dart';
-import 'package:sme_app_aluno/views/messages/list_messages.dart';
-import 'package:sme_app_aluno/views/messages/view_message.dart';
+import 'package:sme_app_aluno/views/messages/mensagem-lista.view.dart';
+import 'package:sme_app_aluno/views/messages/mensagem.view.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
-import 'package:sme_app_aluno/views/widgets/cards/card_calendar.dart';
-import 'package:sme_app_aluno/views/widgets/cards/eaq_recent_card.dart';
-import 'package:sme_app_aluno/views/widgets/cards/index.dart';
+import 'package:sme_app_aluno/widgets/cards/cards.dart';
 import 'package:sme_app_aluno/views/drawer_menu/drawer_menu.dart';
-import 'package:sme_app_aluno/views/widgets/tag/tag_custom.dart';
+import 'package:sme_app_aluno/widgets/tag/tag_custom.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/controllers/event/event.controller.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
 
-class Dashboard extends StatefulWidget {
+class DashboardView extends StatefulWidget {
   final Student student;
   final String groupSchool;
   final int codigoGrupo;
   final int userId;
 
-  Dashboard(
+  DashboardView(
       {@required this.student,
       @required this.groupSchool,
       @required this.codigoGrupo,
@@ -40,7 +38,7 @@ class Dashboard extends StatefulWidget {
   _DashboardState createState() => _DashboardState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _DashboardState extends State<DashboardView> {
   MessagesController _messagesController;
   EventController _eventController;
 
@@ -94,7 +92,7 @@ class _DashboardState extends State<Dashboard> {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ListMessages(
+                builder: (context) => MensagemListaView(
                       userId: widget.userId,
                       codigoGrupo: widget.codigoGrupo,
                       codigoAlunoEol: widget.student.codigoEol,
@@ -186,7 +184,7 @@ class _DashboardState extends State<Dashboard> {
                             child: Visibility(
                                 visible: _messagesController.messages != null &&
                                     _messagesController.messages.isEmpty,
-                                child: CardRecentMessage(
+                                child: EACardMensagemRecente(
                                   recent: true,
                                 )),
                           );
@@ -247,7 +245,7 @@ class _DashboardState extends State<Dashboard> {
                     } else {
                       if (_eventController.priorityEvents != null &&
                           _eventController.priorityEvents.isNotEmpty) {
-                        return CardCalendar(
+                        return EACardCalendario(
                             heightContainer: screenHeight * 48,
                             title: "AGENDA",
                             month: _eventController.currentMonth,
@@ -268,7 +266,7 @@ class _DashboardState extends State<Dashboard> {
                                       userId: widget.userId));
                             });
                       } else {
-                        return CardAlert(
+                        return EACardAlerta(
                           title: "AGENDA",
                           icon: Icon(
                             FontAwesomeIcons.calendarAlt,
@@ -281,7 +279,7 @@ class _DashboardState extends State<Dashboard> {
                       }
                     }
                   }),
-                  CardAlert(
+                  EACardAlerta(
                     title: "ALERTA DE NOTAS",
                     icon: Icon(
                       FontAwesomeIcons.envelopeOpen,
@@ -291,7 +289,7 @@ class _DashboardState extends State<Dashboard> {
                     text:
                         "Em breve você visualizará alertas de notas neste espaço. Aguarde as próximas atualizações do aplicativo.",
                   ),
-                  CardAlert(
+                  EACardAlerta(
                     title: "ALERTA DE FREQUÊNCIA",
                     icon: Icon(
                       FontAwesomeIcons.envelopeOpen,

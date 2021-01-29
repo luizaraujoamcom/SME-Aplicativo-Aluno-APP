@@ -5,18 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:getflutter/components/loader/gf_loader.dart';
-import 'package:getflutter/size/gf_size.dart';
-import 'package:getflutter/types/gf_loader_type.dart';
 import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.dart';
 import 'package:sme_app_aluno/views/firstAccess/firstAccess.dart';
 import 'package:sme_app_aluno/views/recover_password/recover_password.dart';
 import 'package:sme_app_aluno/views/students/list_studants.dart';
-import 'package:sme_app_aluno/views/widgets/buttons/eabutton.dart';
+import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/themes/app.theme.dart';
+import 'package:sme_app_aluno/widgets/loader.widget.dart';
 
 class Login extends StatefulWidget {
   final String notice;
@@ -119,8 +118,7 @@ class _LoginState extends State<Login> {
                         alignment: Alignment.center,
                         margin: EdgeInsets.only(
                             top: screenHeight * 8, bottom: screenHeight * 6),
-                        child:
-                            Image.asset("assets/images/Logo_escola_aqui.png"),
+                        child: Image.asset(assetLogoEscolaAqui),
                       ),
                       Form(
                         autovalidate: true,
@@ -155,22 +153,21 @@ class _LoginState extends State<Login> {
                                 padding:
                                     EdgeInsets.only(left: screenHeight * 2),
                                 decoration: BoxDecoration(
-                                  color: Color(0xfff0f0f0),
+                                  color: corCinzaClaro,
                                   border: Border(
                                       bottom: BorderSide(
                                           color: _cpfIsError
                                               ? Colors.red
-                                              : Color(0xffD06D12),
+                                              : corLaranja,
                                           width: screenHeight * 0.39)),
                                 ),
                                 child: TextFormField(
                                   style: TextStyle(
-                                      color: Color(0xff333333),
+                                      color: corCinzaEscuro,
                                       fontWeight: FontWeight.w600),
                                   decoration: InputDecoration(
                                     labelText: 'Usuário',
-                                    labelStyle:
-                                        TextStyle(color: Color(0xff8e8e8e)),
+                                    labelStyle: TextStyle(color: corCinzaMedio),
                                     errorStyle:
                                         TextStyle(fontWeight: FontWeight.w700),
                                     border: InputBorder.none,
@@ -194,7 +191,7 @@ class _LoginState extends State<Login> {
                                     return null;
                                   },
                                   inputFormatters: [
-                                    WhitelistingTextInputFormatter.digitsOnly,
+                                    FilteringTextInputFormatter.digitsOnly,
                                     CpfInputFormatter(),
                                   ],
                                   keyboardType: TextInputType.number,
@@ -207,24 +204,24 @@ class _LoginState extends State<Login> {
                                 "Digite o CPF do responsável",
                                 maxFontSize: 14,
                                 minFontSize: 12,
-                                style: TextStyle(color: Color(0xff979797)),
+                                style: TextStyle(color: corCinzaMedio2),
                               ),
                               Container(
                                 margin: EdgeInsets.only(top: screenHeight * 5),
                                 padding:
                                     EdgeInsets.only(left: screenHeight * 2),
                                 decoration: BoxDecoration(
-                                  color: Color(0xfff0f0f0),
+                                  color: corCinzaClaro,
                                   border: Border(
                                       bottom: BorderSide(
                                           color: _passwordIsError
                                               ? Colors.red
-                                              : Color(0xffD06D12),
+                                              : corLaranja,
                                           width: screenHeight * 0.39)),
                                 ),
                                 child: TextFormField(
                                   style: TextStyle(
-                                      color: Color(0xff333333),
+                                      color: corCinzaEscuro,
                                       fontWeight: FontWeight.w600),
                                   obscureText: _showPassword,
                                   onChanged: (value) {
@@ -246,7 +243,7 @@ class _LoginState extends State<Login> {
                                       icon: _showPassword
                                           ? Icon(FontAwesomeIcons.eye)
                                           : Icon(FontAwesomeIcons.eyeSlash),
-                                      color: Color(0xff6e6e6e),
+                                      color: corCinzaMedio3,
                                       iconSize: screenHeight * 3.0,
                                       onPressed: () {
                                         setState(() {
@@ -255,8 +252,7 @@ class _LoginState extends State<Login> {
                                       },
                                     ),
                                     labelText: 'Senha',
-                                    labelStyle:
-                                        TextStyle(color: Color(0xff8e8e8e)),
+                                    labelStyle: TextStyle(color: corCinzaMedio),
                                     errorStyle:
                                         TextStyle(fontWeight: FontWeight.w700),
                                     // hintText: "Data de nascimento do aluno",
@@ -274,7 +270,7 @@ class _LoginState extends State<Login> {
                                 minFontSize: 12,
                                 maxLines: 3,
                                 style: TextStyle(
-                                  color: Color(0xff979797),
+                                  color: corCinzaMedio2,
                                 ),
                               ),
                               SizedBox(
@@ -293,7 +289,7 @@ class _LoginState extends State<Login> {
                                     minFontSize: 12,
                                     maxLines: 3,
                                     style: TextStyle(
-                                        color: Color(0xff757575),
+                                        color: corCinzaMedio4,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -303,19 +299,13 @@ class _LoginState extends State<Login> {
                               ),
                               Observer(builder: (context) {
                                 if (_authenticateController.isLoading) {
-                                  return GFLoader(
-                                    type: GFLoaderType.square,
-                                    loaderColorOne: Color(0xffDE9524),
-                                    loaderColorTwo: Color(0xffC65D00),
-                                    loaderColorThree: Color(0xffC65D00),
-                                    size: GFSize.LARGE,
-                                  );
+                                  return EALoader();
                                 } else {
                                   return EAButton(
                                     text: "ENTRAR",
                                     icon: FontAwesomeIcons.chevronRight,
-                                    iconColor: Color(0xffffd037),
-                                    btnColor: Color(0xffd06d12),
+                                    iconColor: corAmarelo1,
+                                    btnColor: corLaranja,
                                     desabled: CPFValidator.isValid(_cpf) &&
                                         _password.length >= 7,
                                     onPress: () {
@@ -339,8 +329,7 @@ class _LoginState extends State<Login> {
                 Container(
                   height: screenHeight * 6,
                   margin: EdgeInsets.only(top: 70),
-                  child: Image.asset("assets/images/logo_sme.png",
-                      fit: BoxFit.cover),
+                  child: Image.asset(assetLogoSME, fit: BoxFit.cover),
                 ),
               ],
             ),

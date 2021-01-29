@@ -2,14 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CardAlert extends StatelessWidget {
+class EACardAlerta extends StatelessWidget {
   final String title;
   final Icon icon;
   final String text;
   final double textSize;
   final bool isHeader;
 
-  CardAlert(
+  EACardAlerta(
       {this.title, this.icon, this.text, this.isHeader = true, this.textSize});
 
   @override

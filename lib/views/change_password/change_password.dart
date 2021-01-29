@@ -6,9 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:getflutter/getflutter.dart';
 import 'package:sme_app_aluno/controllers/settings/settings.controller.dart';
-import 'package:sme_app_aluno/views/widgets/buttons/eabutton.dart';
-import 'package:sme_app_aluno/views/widgets/check_line/check_line.dart';
-import 'package:sme_app_aluno/views/widgets/info_box/info_box.dart';
+import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
+import 'package:sme_app_aluno/widgets/check_line/check_line.dart';
+import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
 
 class ChangePassword extends StatefulWidget {
   final String cpf;

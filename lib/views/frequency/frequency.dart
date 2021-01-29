@@ -12,8 +12,7 @@ import 'package:sme_app_aluno/models/frequency/curricular_component.dart';
 import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/views/frequency/widgets/box_frequency.dart';
 import 'package:sme_app_aluno/views/frequency/widgets/label_frequency.dart';
-import 'package:sme_app_aluno/views/widgets/cards/card_alert.dart';
-import 'package:sme_app_aluno/views/widgets/cards/frequency_global_card.dart';
+import 'package:sme_app_aluno/widgets/cards/cards.dart';
 
 class Frequency extends StatefulWidget {
   final Student student;
@@ -307,7 +306,7 @@ class _FrequencyState extends State<Frequency> {
             .frequency.componentesCurricularesDoAluno[index].isExpanded,
       );
 
-  _buildAlertEmptyFrequency(size, screenHeight) => CardAlert(
+  _buildAlertEmptyFrequency(size, screenHeight) => EACardAlerta(
         title: "FREQUÊNCIA",
         icon: Icon(
           FontAwesomeIcons.calendarAlt,
@@ -368,7 +367,8 @@ class _FrequencyState extends State<Frequency> {
         }
 
         if (_frequencyController.frequency != null) {
-          return FrequencyGlobalCard(frequency: _frequencyController.frequency);
+          return EACardFrequenciaGlobal(
+              frequency: _frequencyController.frequency);
         }
 
         return _buildAlertEmptyFrequency(size, screenHeight);
