@@ -2,12 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:getflutter/components/loader/gf_loader.dart';
-import 'package:getflutter/size/gf_size.dart';
-import 'package:getflutter/types/gf_loader_type.dart';
 import 'package:sme_app_aluno/controllers/ue/ue.controller.dart';
 import 'package:sme_app_aluno/views/data_student/student_body.dart';
 import 'package:sme_app_aluno/views/data_student/ue_body.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class DataStudent extends StatefulWidget {
   final String dataNasc;
@@ -54,13 +52,7 @@ class _DataStudentState extends State<DataStudent> {
         Observer(builder: (context) {
           if (_ueController.isLoading) {
             return Container(
-              child: GFLoader(
-                type: GFLoaderType.square,
-                loaderColorOne: Color(0xffDE9524),
-                loaderColorTwo: Color(0xffC65D00),
-                loaderColorThree: Color(0xffC65D00),
-                size: GFSize.LARGE,
-              ),
+              child: EALoader(),
               margin: EdgeInsets.all(screenHeight * 1.5),
             );
           } else {

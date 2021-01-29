@@ -12,6 +12,7 @@ import 'package:sme_app_aluno/widgets/student_info/student_info.dart';
 import 'package:getflutter/components/loader/gf_loader.dart';
 import 'package:getflutter/size/gf_size.dart';
 import 'package:getflutter/types/gf_loader_type.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class ListEvents extends StatefulWidget {
   final Student student;
@@ -199,13 +200,7 @@ class _ListEventsState extends State<ListEvents> {
                 child: Observer(builder: (context) {
                   if (_eventController.loading) {
                     return Container(
-                      child: GFLoader(
-                        type: GFLoaderType.square,
-                        loaderColorOne: Color(0xffDE9524),
-                        loaderColorTwo: Color(0xffC65D00),
-                        loaderColorThree: Color(0xffC65D00),
-                        size: GFSize.LARGE,
-                      ),
+                      child: EALoader(),
                       margin: EdgeInsets.all(screenHeight * 1.5),
                     );
                   } else {

@@ -9,6 +9,7 @@ import 'package:sme_app_aluno/controllers/settings/settings.controller.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/widgets/check_line/check_line.dart';
 import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
+import 'package:sme_app_aluno/widgets/loader.widget.dart';
 
 class ChangePassword extends StatefulWidget {
   final String cpf;
@@ -406,13 +407,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                                             _password, _oldPassword, widget.id);
                                       },
                                     )
-                                  : GFLoader(
-                                      type: GFLoaderType.square,
-                                      loaderColorOne: Color(0xffDE9524),
-                                      loaderColorTwo: Color(0xffC65D00),
-                                      loaderColorThree: Color(0xffC65D00),
-                                      size: GFSize.LARGE,
-                                    ),
+                                  : EALoader(),
                             ]),
                       ),
                     ],

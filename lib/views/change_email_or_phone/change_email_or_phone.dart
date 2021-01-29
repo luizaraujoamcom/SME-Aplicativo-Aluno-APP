@@ -17,6 +17,7 @@ import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/auth.dart';
 import 'package:sme_app_aluno/utils/string_support.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class ChangeEmailOrPhone extends StatefulWidget {
   final String cpf;
@@ -377,13 +378,7 @@ class _ChangeEmailOrPhoneState extends State<ChangeEmailOrPhone> {
                                               desabled: true),
                                         ],
                                       )
-                                    : GFLoader(
-                                        type: GFLoaderType.square,
-                                        loaderColorOne: Color(0xffDE9524),
-                                        loaderColorTwo: Color(0xffC65D00),
-                                        loaderColorThree: Color(0xffC65D00),
-                                        size: GFSize.LARGE,
-                                      ),
+                                    : EALoader(),
                               ]),
                         ),
                       ],

@@ -8,7 +8,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'dart:io' show Platform;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_ip/get_ip.dart';
-import 'package:getflutter/getflutter.dart';
 import 'package:mobx/mobx.dart';
 import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
 
@@ -23,6 +22,7 @@ import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/widgets/check_line/check_line.dart';
 import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
 import 'package:sme_app_aluno/utils/auth.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class PrimeiroAcessoView extends StatefulWidget {
   final int id;
@@ -520,13 +520,7 @@ class _FirstAccessState extends State<PrimeiroAcessoView> {
                                               desabled: true),
                                         ],
                                       )
-                                    : GFLoader(
-                                        type: GFLoaderType.square,
-                                        loaderColorOne: Color(0xffDE9524),
-                                        loaderColorTwo: Color(0xffC65D00),
-                                        loaderColorThree: Color(0xffC65D00),
-                                        size: GFSize.LARGE,
-                                      ),
+                                    : EALoader(),
                               ]),
                         ),
                       ],

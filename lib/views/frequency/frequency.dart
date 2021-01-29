@@ -2,9 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:getflutter/components/loader/gf_loader.dart';
-import 'package:getflutter/size/gf_size.dart';
-import 'package:getflutter/types/gf_loader_type.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:sme_app_aluno/controllers/frequency/frequency.controller.dart';
@@ -171,13 +168,7 @@ class _FrequencyState extends State<Frequency> {
   }
 
   _buildLoadingWidget(size, screenHeight) => Container(
-        child: GFLoader(
-          type: GFLoaderType.square,
-          loaderColorOne: Color(0xffDE9524),
-          loaderColorTwo: Color(0xffC65D00),
-          loaderColorThree: Color(0xffC65D00),
-          size: GFSize.LARGE,
-        ),
+        child: EALoader(),
         margin: EdgeInsets.all(screenHeight * 1.5),
       );
 

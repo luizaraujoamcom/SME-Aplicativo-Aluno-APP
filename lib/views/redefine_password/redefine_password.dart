@@ -13,6 +13,7 @@ import 'package:sme_app_aluno/widgets/check_line/check_line.dart';
 import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/widgets/loader.widget.dart';
 
 class RedefinePassword extends StatefulWidget {
   final String cpf;
@@ -326,13 +327,7 @@ class _RedefinePasswordState extends State<RedefinePassword> {
                               ),
                               Observer(builder: (context) {
                                 if (_recoverPasswordController.loading) {
-                                  return GFLoader(
-                                    type: GFLoaderType.square,
-                                    loaderColorOne: Color(0xffDE9524),
-                                    loaderColorTwo: Color(0xffC65D00),
-                                    loaderColorThree: Color(0xffC65D00),
-                                    size: GFSize.LARGE,
-                                  );
+                                  return EALoader();
                                 } else {
                                   return EAButton(
                                     text: "CONFIRMAR ALTERAÇÃO",

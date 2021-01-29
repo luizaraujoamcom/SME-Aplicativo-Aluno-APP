@@ -6,13 +6,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:getflutter/getflutter.dart';
 import 'package:mobx/mobx.dart';
 import 'package:sme_app_aluno/controllers/auth/first_access.controller.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/string_support.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class InternalChangeEmailOrPhone extends StatefulWidget {
   final int userId;
@@ -317,13 +317,7 @@ class _InternalChangeEmailOrPhoneState
                                             widget.userId);
                                       },
                                     )
-                                  : GFLoader(
-                                      type: GFLoaderType.square,
-                                      loaderColorOne: Color(0xffDE9524),
-                                      loaderColorTwo: Color(0xffC65D00),
-                                      loaderColorThree: Color(0xffC65D00),
-                                      size: GFSize.LARGE,
-                                    ),
+                                  : EALoader(),
                             ]),
                       ),
                     ],

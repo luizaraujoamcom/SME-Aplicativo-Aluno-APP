@@ -2,9 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:getflutter/components/loader/gf_loader.dart';
-import 'package:getflutter/size/gf_size.dart';
-import 'package:getflutter/types/gf_loader_type.dart';
 import 'package:provider/provider.dart';
 import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
@@ -239,13 +236,7 @@ class _ListMessageState extends State<MensagemListaView> {
   Widget _buildListMessages(BuildContext context, num screenHeight) {
     return Observer(builder: (context) {
       if (_messagesController.isLoading) {
-        return GFLoader(
-          type: GFLoaderType.square,
-          loaderColorOne: Color(0xffDE9524),
-          loaderColorTwo: Color(0xffC65D00),
-          loaderColorThree: Color(0xffC65D00),
-          size: GFSize.LARGE,
-        );
+        return EALoader();
       } else {
         // _messagesController.loadMessagesNotDeleteds();
         _messagesController.loadMessageToFilters(dreCheck, smeCheck, ueCheck);

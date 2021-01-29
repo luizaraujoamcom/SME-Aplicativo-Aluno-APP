@@ -18,6 +18,7 @@ import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/auth.dart';
 import 'package:sme_app_aluno/utils/global_config.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class ListStudants extends StatefulWidget {
   final int userId;
@@ -178,13 +179,7 @@ class _ListStudantsState extends State<ListStudants> {
                     child: Observer(builder: (context) {
                       if (_studentsController.isLoading ||
                           _studentsController.dataEstudent == null) {
-                        return GFLoader(
-                          type: GFLoaderType.square,
-                          loaderColorOne: Color(0xffDE9524),
-                          loaderColorTwo: Color(0xffC65D00),
-                          loaderColorThree: Color(0xffC65D00),
-                          size: GFSize.LARGE,
-                        );
+                        return EALoader();
                       } else {
                         if (_studentsController.dataEstudent.data == null &&
                             widget.userId != null) {

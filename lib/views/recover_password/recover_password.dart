@@ -11,6 +11,7 @@ import 'package:sme_app_aluno/controllers/auth/recover_password.controller.dart'
 import 'package:sme_app_aluno/views/recover_password/show_info.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class RecoverPassword extends StatefulWidget {
   final String input;
@@ -213,13 +214,7 @@ class _RecoverPasswordState extends State<RecoverPassword> {
                                 height: screenHeight * 4,
                               ),
                               loading
-                                  ? GFLoader(
-                                      type: GFLoaderType.square,
-                                      loaderColorOne: Color(0xffDE9524),
-                                      loaderColorTwo: Color(0xffC65D00),
-                                      loaderColorThree: Color(0xffC65D00),
-                                      size: GFSize.LARGE,
-                                    )
+                                  ? EALoader()
                                   : EAButton(
                                       text: "CONTINUAR",
                                       icon: FontAwesomeIcons.chevronRight,

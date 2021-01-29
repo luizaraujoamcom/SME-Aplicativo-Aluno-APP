@@ -16,6 +16,7 @@ import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
 import 'package:sme_app_aluno/views/views.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class WrapperView extends StatefulWidget {
   @override
@@ -109,15 +110,7 @@ class _WrapperState extends State<WrapperView> {
         if (_authenticateController.user == null) {
           return Scaffold(
               backgroundColor: Colors.white,
-              body: _authenticateController.isLoading
-                  ? GFLoader(
-                      type: GFLoaderType.square,
-                      loaderColorOne: Color(0xffDE9524),
-                      loaderColorTwo: Color(0xffC65D00),
-                      loaderColorThree: Color(0xffC65D00),
-                      size: GFSize.LARGE,
-                    )
-                  : Login());
+              body: _authenticateController.isLoading ? EALoader() : Login());
         } else {
           if (_authenticateController.user.primeiroAcesso) {
             return PrimeiroAcessoView(

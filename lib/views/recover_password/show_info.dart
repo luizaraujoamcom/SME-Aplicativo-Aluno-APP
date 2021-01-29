@@ -12,6 +12,7 @@ import 'package:sme_app_aluno/views/redefine_password/redefine_password.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
 import 'package:sme_app_aluno/utils/string_support.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class ShowInfo extends StatefulWidget {
   final String cpf;
@@ -204,13 +205,7 @@ class _ShowInfoState extends State<ShowInfo> {
                             ),
                             Observer(builder: (context) {
                               if (_recoverPasswordController.loading) {
-                                return GFLoader(
-                                  type: GFLoaderType.square,
-                                  loaderColorOne: Color(0xffDE9524),
-                                  loaderColorTwo: Color(0xffC65D00),
-                                  loaderColorThree: Color(0xffC65D00),
-                                  size: GFSize.LARGE,
-                                );
+                                return EALoader();
                               } else {
                                 return EAButton(
                                   text: "CONTINUAR",
