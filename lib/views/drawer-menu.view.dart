@@ -7,21 +7,21 @@ import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/views/calendar/list_events.dart';
 import 'package:sme_app_aluno/views/login.view.dart';
-import 'package:sme_app_aluno/views/messages/list_messages.dart';
+import 'package:sme_app_aluno/views/messages/mensagem-lista.view.dart';
 import 'package:sme_app_aluno/views/settings/settings.dart';
 import 'package:sme_app_aluno/views/students/list_studants.dart';
 import 'package:sme_app_aluno/views/students/resume_studants/resume_studants.dart';
-import 'package:sme_app_aluno/views/terms/terms_use.dart';
+import 'package:sme_app_aluno/views/termos-uso.view.dart';
 import 'package:sme_app_aluno/utils/auth.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
 
-class DrawerMenu extends StatefulWidget {
+class DrawerMenuView extends StatefulWidget {
   final Student student;
   final int codigoGrupo;
   final int userId;
   final String groupSchool;
 
-  DrawerMenu(
+  DrawerMenuView(
       {@required this.student,
       @required this.codigoGrupo,
       @required this.userId,
@@ -30,7 +30,7 @@ class DrawerMenu extends StatefulWidget {
   _DrawerMenuState createState() => _DrawerMenuState();
 }
 
-class _DrawerMenuState extends State<DrawerMenu> {
+class _DrawerMenuState extends State<DrawerMenuView> {
   AuthenticateController _authenticateController;
   MessagesController _messagesController;
 
@@ -53,7 +53,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => ListMessages(
+          builder: (context) => MensagemListaView(
                 userId: _authenticateController.user.id,
                 codigoGrupo: widget.codigoGrupo,
                 codigoAlunoEol: widget.student.codigoEol,
@@ -86,7 +86,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
   }
 
   _navigateToTerms(BuildContext context) {
-    Nav.push(context, TermsUse());
+    Nav.push(context, TermosUsoView());
   }
 
   @override

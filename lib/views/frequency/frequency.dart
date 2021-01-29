@@ -12,7 +12,7 @@ import 'package:sme_app_aluno/models/frequency/curricular_component.dart';
 import 'package:sme_app_aluno/models/student/student.dart';
 import 'package:sme_app_aluno/views/frequency/widgets/box_frequency.dart';
 import 'package:sme_app_aluno/views/frequency/widgets/label_frequency.dart';
-import 'package:sme_app_aluno/widgets/cards/cards.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class Frequency extends StatefulWidget {
   final Student student;

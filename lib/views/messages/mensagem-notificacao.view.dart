@@ -9,7 +9,7 @@ import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
 import 'package:sme_app_aluno/views/students/list_studants.dart';
 import 'package:sme_app_aluno/widgets/buttons/icon-button.widget.dart';
-import 'package:sme_app_aluno/widgets/cards/cards.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/date_format.dart';

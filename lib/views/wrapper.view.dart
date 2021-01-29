@@ -8,7 +8,6 @@ import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.dart';
-import 'package:sme_app_aluno/views/firstAccess/firstAccess.dart';
 import 'package:sme_app_aluno/views/login.view.dart';
 import 'package:sme_app_aluno/views/messages/mensagem-notificacao.view.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
@@ -16,6 +15,7 @@ import 'package:sme_app_aluno/views/students/list_studants.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
+import 'package:sme_app_aluno/views/views.dart';
 
 class WrapperView extends StatefulWidget {
   @override
@@ -120,7 +120,7 @@ class _WrapperState extends State<WrapperView> {
                   : Login());
         } else {
           if (_authenticateController.user.primeiroAcesso) {
-            return FirstAccess(
+            return PrimeiroAcessoView(
               id: _authenticateController.user.id,
               cpf: _authenticateController.user.cpf,
             );

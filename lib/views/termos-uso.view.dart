@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:getflutter/components/loader/gf_loader.dart';
-import 'package:getflutter/getflutter.dart';
 import 'package:sme_app_aluno/controllers/terms/terms.controller.dart';
-import 'package:sme_app_aluno/views/terms/terms_view.dart';
+import 'package:sme_app_aluno/views/views.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
-class TermsUse extends StatefulWidget {
+class TermosUsoView extends StatefulWidget {
   @override
   _TermsUseState createState() => _TermsUseState();
 }
 
-class _TermsUseState extends State<TermsUse> {
+class _TermsUseState extends State<TermosUsoView> {
   TermsController _termsController;
 
   @override
@@ -35,15 +34,9 @@ class _TermsUseState extends State<TermsUse> {
         child: Observer(builder: (context) {
           if (_termsController.term != null &&
               _termsController.term.termosDeUso != null) {
-            return TermsView(term: _termsController.term, showBtn: false);
+            return TermosView(term: _termsController.term, showBtn: false);
           } else {
-            return GFLoader(
-              type: GFLoaderType.square,
-              loaderColorOne: Color(0xffDE9524),
-              loaderColorTwo: Color(0xffC65D00),
-              loaderColorThree: Color(0xffC65D00),
-              size: GFSize.LARGE,
-            );
+            return EALoader();
           }
         }),
       ),

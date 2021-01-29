@@ -10,8 +10,7 @@ import 'package:sme_app_aluno/controllers/messages/messages.controller.dart';
 import 'package:sme_app_aluno/models/message/message.dart';
 import 'package:sme_app_aluno/views/messages/mensagem.view.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
-
-import 'package:sme_app_aluno/widgets/cards/cards.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/widgets/filters/eaq_filter_page.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/utils/date_format.dart';

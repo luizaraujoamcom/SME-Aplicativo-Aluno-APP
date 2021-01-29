@@ -16,7 +16,7 @@ import 'package:sme_app_aluno/controllers/auth/first_access.controller.dart';
 import 'package:sme_app_aluno/controllers/terms/terms.controller.dart';
 import 'package:sme_app_aluno/models/terms/term.dart';
 import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.dart';
-import 'package:sme_app_aluno/views/terms/terms_view.dart';
+import 'package:sme_app_aluno/views/views.dart';
 import 'package:sme_app_aluno/widgets/buttons/back-button.widget.dart';
 
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
@@ -24,17 +24,17 @@ import 'package:sme_app_aluno/widgets/check_line/check_line.dart';
 import 'package:sme_app_aluno/widgets/info_box/info_box.dart';
 import 'package:sme_app_aluno/utils/auth.dart';
 
-class FirstAccess extends StatefulWidget {
+class PrimeiroAcessoView extends StatefulWidget {
   final int id;
   final String cpf;
 
-  FirstAccess({@required this.id, @required this.cpf});
+  PrimeiroAcessoView({@required this.id, @required this.cpf});
 
   @override
   _FirstAccessState createState() => _FirstAccessState();
 }
 
-class _FirstAccessState extends State<FirstAccess> {
+class _FirstAccessState extends State<PrimeiroAcessoView> {
   final _formKey = GlobalKey<FormState>();
   final scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -149,7 +149,7 @@ class _FirstAccessState extends State<FirstAccess> {
               ),
               color: Colors.white),
           height: screenHeight * 90,
-          child: TermsView(
+          child: TermosView(
             term: term,
             changeStatusTerm: () => changeStatusTerm(),
             cpf: widget.cpf,

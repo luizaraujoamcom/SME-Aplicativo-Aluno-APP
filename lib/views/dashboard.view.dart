@@ -15,8 +15,8 @@ import 'package:sme_app_aluno/views/calendar/title_event.dart';
 import 'package:sme_app_aluno/views/messages/mensagem-lista.view.dart';
 import 'package:sme_app_aluno/views/messages/mensagem.view.dart';
 import 'package:sme_app_aluno/views/not_internet/not_internet.dart';
-import 'package:sme_app_aluno/widgets/cards/cards.dart';
-import 'package:sme_app_aluno/views/drawer_menu/drawer_menu.dart';
+import 'package:sme_app_aluno/views/views.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 import 'package:sme_app_aluno/widgets/tag/tag_custom.dart';
 import 'package:sme_app_aluno/utils/conection.dart';
 import 'package:sme_app_aluno/controllers/event/event.controller.dart';
@@ -303,7 +303,7 @@ class _DashboardState extends State<DashboardView> {
               ),
             ),
           ),
-          drawer: DrawerMenu(
+          drawer: DrawerMenuView(
               student: widget.student,
               codigoGrupo: widget.codigoGrupo,
               userId: widget.userId,

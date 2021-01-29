@@ -5,12 +5,12 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:sme_app_aluno/models/terms/term.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 
-class TermsView extends StatefulWidget {
+class TermosView extends StatefulWidget {
   final Term term;
   final Function changeStatusTerm;
   final String cpf;
   final bool showBtn;
-  TermsView(
+  TermosView(
       {@required this.term,
       this.changeStatusTerm,
       this.cpf,
@@ -20,7 +20,7 @@ class TermsView extends StatefulWidget {
   _TermsViewState createState() => _TermsViewState();
 }
 
-class _TermsViewState extends State<TermsView> {
+class _TermsViewState extends State<TermosView> {
   final ScrollController _controller = new ScrollController();
   var reachEnd = false;
 

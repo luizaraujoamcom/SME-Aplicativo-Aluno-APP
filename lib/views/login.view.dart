@@ -8,14 +8,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sme_app_aluno/controllers/auth/authenticate.controller.dart';
 import 'package:sme_app_aluno/models/user/user.dart';
 import 'package:sme_app_aluno/views/change_email_or_phone/change_email_or_phone.dart';
-import 'package:sme_app_aluno/views/firstAccess/firstAccess.dart';
 import 'package:sme_app_aluno/views/recover_password/recover_password.dart';
 import 'package:sme_app_aluno/views/students/list_studants.dart';
 import 'package:sme_app_aluno/widgets/buttons/button.widget.dart';
 import 'package:sme_app_aluno/services/user.service.dart';
 import 'package:sme_app_aluno/utils/navigator.dart';
 import 'package:sme_app_aluno/themes/app.theme.dart';
-import 'package:sme_app_aluno/widgets/loader.widget.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
+import 'package:sme_app_aluno/views/views.dart';
 
 class Login extends StatefulWidget {
   final String notice;
@@ -62,7 +62,7 @@ class _LoginState extends State<Login> {
       if (_authenticateController.currentUser.data.primeiroAcesso) {
         Nav.push(
             context,
-            FirstAccess(
+            PrimeiroAcessoView(
               id: _authenticateController.currentUser.data.id,
               cpf: _authenticateController.currentUser.data.cpf,
             ));

@@ -9,7 +9,7 @@ import 'package:sme_app_aluno/controllers/note/list_notes.controller.dart';
 import 'package:sme_app_aluno/views/notes/notes_body.dart';
 import 'package:sme_app_aluno/views/notes/obs_body.dart';
 import 'package:sme_app_aluno/views/notes/tile_item.dart';
-import 'package:sme_app_aluno/widgets/cards/cards.dart';
+import 'package:sme_app_aluno/widgets/widgets.dart';
 
 class Expansion extends StatefulWidget {
   final String codigoUe;
